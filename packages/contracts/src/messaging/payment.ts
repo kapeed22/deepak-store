@@ -1,6 +1,6 @@
 import {
-  PaymentStatus,
-  PaymentAttemptStatus
+  PaymentAttemptStatus,
+  PaymentStatus
 } from "../payment";
 
 export const PaymentCommandType = {
@@ -12,17 +12,12 @@ export type PaymentCommandType =
 
 export interface ProcessPaymentCommand {
   type: typeof PaymentCommandType.PROCESS_PAYMENT;
-
   messageId: string;
-
   orderId: string;
   paymentId: string;
-
   amount: number;
   currency: string;
-
   attemptNumber: number;
-
   createdAt: string;
 }
 
@@ -37,57 +32,38 @@ export type PaymentEventType =
 
 export interface PaymentSucceededEvent {
   type: typeof PaymentEventType.PAYMENT_SUCCEEDED;
-
   eventId: string;
-
   orderId: string;
   paymentId: string;
-
   provider: string;
   providerPaymentId: string;
-
   amount: number;
   currency: string;
-
   attemptNumber: number;
-
   occurredAt: string;
 }
 
 export interface PaymentFailedEvent {
   type: typeof PaymentEventType.PAYMENT_FAILED;
-
   eventId: string;
-
   orderId: string;
   paymentId: string;
-
   provider: string;
-
   attemptNumber: number;
-
-  status: PaymentStatus.FAILED;
-
+  status: PaymentStatus;
   errorCode?: string;
   errorMessage?: string;
-
   occurredAt: string;
 }
 
 export interface PaymentTimedOutEvent {
   type: typeof PaymentEventType.PAYMENT_TIMED_OUT;
-
   eventId: string;
-
   orderId: string;
   paymentId: string;
-
   provider: string;
-
   attemptNumber: number;
-
-  status: PaymentAttemptStatus.TIMED_OUT;
-
+  status: PaymentAttemptStatus;
   occurredAt: string;
 }
 
