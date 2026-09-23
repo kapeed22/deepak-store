@@ -8,6 +8,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "typecheck": "tsc --noEmit"
+    "test": "vitest run"
   },
   "dependencies": {
     "@deepak-store/contracts": "1.0.0",
@@ -19,5 +20,6 @@
     "@types/pg": "^8.0.0",
     "tsx": "^4.0.0",
     "typescript": "^5.0.0"
+    "vitest": "^3.0.0"
   }
 }
